@@ -7,23 +7,8 @@ from bs4 import BeautifulSoup
 from selenium import webdriver
 
 from urllib.parse import urljoin
-
-
 from pymongo import MongoClient  # pymongo를 임포트 하기(패키지 인스톨 먼저 해야겠죠?)
 
-def launch_browser():
-    options = webdriver.ChromeOptions()
-    options.add_argument('headless')
-    options.add_argument('windows-size=1920x1080')
-    options.add_argument('disable-gpu')
-    driver = webdriver.Chrome('/usr/local/bin/chromedriver', options=options)
-    driver.get('https://select.ridibooks.com/book/510000165')
-
-    print(driver.page_source)
-    soup = BeautifulSoup(driver.page_source, 'html.parser')
-
-    # soup.....
-    driver.quit()
 
 def search_karaoke(title):
 
